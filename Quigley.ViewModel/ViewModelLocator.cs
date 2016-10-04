@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quigley.Application;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Quigley.ViewModel
             {
                 if (mainWindowVM == null)
                 {
-                    mainWindowVM = new MainWindowViewModel();
+                    mainWindowVM = new MainWindowViewModel(new UIDataProvider());
                 }
                 return mainWindowVM;
             }

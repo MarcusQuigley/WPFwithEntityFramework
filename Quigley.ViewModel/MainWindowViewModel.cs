@@ -1,4 +1,5 @@
-﻿using Quigley.Data;
+﻿using Quigley.Application;
+using Quigley.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,25 @@ using System.Text;
 
 namespace Quigley.ViewModel
 {
-   public class MainWindowViewModel
+   public class MainWindowViewModel 
     {
-        private IList<Customer> customers;
+       readonly IUIDataProvider uIDataProvider;
 
+       public string Name
+       {
+           get { return "Northwind"; }
+       }
+       public string ControlPanelName
+       {
+           get { return "Control Panel"; }
+       }
+       private IList<Customer> customers;
+
+       public MainWindowViewModel(IUIDataProvider uiDataProvider)
+       {
+           this.uIDataProvider = uiDataProvider;
+       }
+ 
         public IList<Customer> Customers
         {
             get
@@ -23,7 +39,7 @@ namespace Quigley.ViewModel
 
         private void GetCustomers()
         {
-            customers = new NorthwindEntities1().Customers.ToList();
-         }
+            customers = uIDataProvider.GetCustomers();
+        }
     }
 }

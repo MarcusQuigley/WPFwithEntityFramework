@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quigley.ViewModel", "Quigle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quigley.Data", "Quigley.Data\Quigley.Data.csproj", "{0F56E45B-64D6-42EB-9E68-F0727B7DB76C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quigley.Application", "Quigley.Application\Quigley.Application.csproj", "{88976750-C97C-4407-8EAC-5FE684F84FE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BC5E780F-502C-4978-9AA6-C67ABF056066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quigley.ViewModel.Tests", "Quigley.ViewModel.Tests\Quigley.ViewModel.Tests.csproj", "{649B070F-B41B-4DD3-89F7-AFD9AFB765FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +33,19 @@ Global
 		{0F56E45B-64D6-42EB-9E68-F0727B7DB76C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F56E45B-64D6-42EB-9E68-F0727B7DB76C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F56E45B-64D6-42EB-9E68-F0727B7DB76C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88976750-C97C-4407-8EAC-5FE684F84FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88976750-C97C-4407-8EAC-5FE684F84FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88976750-C97C-4407-8EAC-5FE684F84FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88976750-C97C-4407-8EAC-5FE684F84FE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{649B070F-B41B-4DD3-89F7-AFD9AFB765FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649B070F-B41B-4DD3-89F7-AFD9AFB765FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649B070F-B41B-4DD3-89F7-AFD9AFB765FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649B070F-B41B-4DD3-89F7-AFD9AFB765FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{649B070F-B41B-4DD3-89F7-AFD9AFB765FB} = {BC5E780F-502C-4978-9AA6-C67ABF056066}
 	EndGlobalSection
 EndGlobal
