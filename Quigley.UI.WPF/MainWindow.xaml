@@ -46,6 +46,9 @@
                         
                     </TextBlock>
                 </Expander.Header>
+                <ListBox ItemsSource="{Binding Path=Customers}"
+                         DisplayMemberPath="CompanyName"/>
+                         
             </Expander>
             <TabControl Grid.Row="0"
                         Grid.Column="1"
