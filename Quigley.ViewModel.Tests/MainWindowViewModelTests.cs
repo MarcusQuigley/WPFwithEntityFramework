@@ -12,8 +12,8 @@ namespace Quigley.ViewModel.Tests
     [TestClass]
     public class MainWindowViewModelTests
     {
-        
-         [TestMethod]
+
+        [TestMethod]
         public void Customers_Always_CallsGetCustomers()
         {
             IUIDataProvider dataProviderMock = MockRepository.GenerateMock<IUIDataProvider>();
@@ -24,22 +24,45 @@ namespace Quigley.ViewModel.Tests
 
             IList<Customer> customers = target.Customers;
             dataProviderMock.VerifyAllExpectations();
-            }
+        }
 
-        private IList<Customer> GetCustomers()
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ShowCustomerDetails_SelectedCustomerIDIsNull_ThrowsInvalidOperationException()
         {
-            const int custNum = 10;
-            IList<Customer> customers = new List<Customer>();
-            for (int i = 0; i < custNum; i++)
-            {
-                customers.Add(new Customer()
-                {
-                CustomerID= "CustomerID" +  i,
-                CompanyName = "CompanyName" + i
-                });
-            }
+            MainWindowViewModel target = new MainWindowViewModel(null);
+            target.ShowCustomerDetails();
+        }
 
-            return customers;
+        [TestMethod]
+        public void ShowCustomerDetails_ToolNotFound_AddNewTool()
+        {
+            const string customerID = "EXPECTEDID";
+            Customer customer = new Customer(){CustomerID = customerID};
+            //MainWindowViewModel target = GetShowCustomerDetailsTarget(customer);
+            MainWindowViewModel target = GetShowCustomerDetailsTarget2(customerID);
+            target.Tools.OfType<CustomerDetailsViewModel>()
+                .FirstOrDefault(c => c.Customer.CustomerID == customerID);
+        }
+
+
+        private static MainWindowViewModel GetShowCustomerDetailsTarget(Customer customer)
+        {
+            IUIDataProvider dataprovider = MockRepository.GenerateMock<IUIDataProvider>();
+
+            MainWindowViewModel target = new MainWindowViewModel(dataprovider);
+            target.SelectedCustomerID = customer.CustomerID;
+            dataprovider.Stub(c => c.GetCustomer(customer.CustomerID)).Return(customer);
+            return target;
+        }
+        private static MainWindowViewModel GetShowCustomerDetailsTarget2(string customerID)
+        {
+            IUIDataProvider dataprovider = MockRepository.GenerateMock<IUIDataProvider>();
+
+            MainWindowViewModel target = new MainWindowViewModel(dataprovider);
+            target.SelectedCustomerID = customerID;
+           // dataprovider.Stub(c => c.GetCustomer(customer.CustomerID)).Return(customer);
+            return target;
         }
     }
 

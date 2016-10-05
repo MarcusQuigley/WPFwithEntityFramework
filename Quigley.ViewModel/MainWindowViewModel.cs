@@ -52,14 +52,14 @@ namespace Quigley.ViewModel
            get {
                if (customerGetCommand == null)
                {
-                   customerGetCommand = new RelayCommand((o) => GetCustomer(), 
+                   customerGetCommand = new RelayCommand((o) => ShowCustomerDetails(), 
                        (o) => { return !string.IsNullOrEmpty(SelectedCustomerID); });
                }
                return customerGetCommand;
            }
        }
 
-       private void GetCustomer()
+       public void ShowCustomerDetails()
        {
            if (string.IsNullOrEmpty(SelectedCustomerID))
                throw new InvalidOperationException("need a customerD");
