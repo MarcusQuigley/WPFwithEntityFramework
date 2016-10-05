@@ -51,7 +51,8 @@
                          DisplayMemberPath="CompanyName"
                          SelectedValuePath="CustomerID"
                          SelectedValue="{Binding SelectedCustomerID, Mode=OneWayToSource}"
-                          Model:ListBoxBehaviour.Command="{Binding Path=CustomerGetCommand}"/>
+                         Model:ListBoxBehaviour.Command="{Binding Path=CustomerGetCommand}"
+                         Model:ListBoxBehaviour.CommandParameter="HELLO"/>
                          
             </Expander>
             <TabControl Grid.Row="0"

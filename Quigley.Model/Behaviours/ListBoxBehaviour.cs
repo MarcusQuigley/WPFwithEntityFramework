@@ -38,8 +38,9 @@ namespace Quigley.Model.Behaviours
             ICommand command = GetCommand(listbox);
             if (command != null)
             {
-                if (command.CanExecute(null))
-                    command.Execute(null);
+                object param = GetCommandParameter(listbox);
+                if (command.CanExecute(param))
+                    command.Execute(param);
             }
         }
 
@@ -57,16 +58,8 @@ namespace Quigley.Model.Behaviours
 
         // Using a DependencyProperty as the backing store for CommandParameter.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.RegisterAttached("CommandParameter", typeof(object), typeof(ListBoxBehaviour), new PropertyMetadata(SetupParameterCallback));
-
-        private static void SetupParameterCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        
-
-        
+            DependencyProperty.RegisterAttached("CommandParameter", 
+            typeof(object), typeof(ListBoxBehaviour));       
 
     }
 }
