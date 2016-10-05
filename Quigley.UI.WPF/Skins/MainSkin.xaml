@@ -1,5 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="MainBlueBrush"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ViewModel="clr-namespace:Quigley.ViewModel;assembly=Quigley.ViewModel"
+                    xmlns:local="clr-namespace:Quigley.UI.WPF">
+    <SolidColorBrush x:Key="mainBlueBrush"
                      Color="#FF145E9D"/>
+    
+     
+    <!--<DataTemplate DataType="{x:Type ViewModel:BToolViewModel}">
+        <local:BTool/>
+    </DataTemplate>-->
+
+    <DataTemplate DataType="{x:Type ViewModel:CustomerDetailsViewModel}">
+        <local:CustomerDetails/>
+    </DataTemplate>
 </ResourceDictionary>
